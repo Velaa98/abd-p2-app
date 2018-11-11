@@ -8,7 +8,7 @@ port = os.environ['PORT']
 
 @app.route('/')
 def inicio():
-    return render_template("login.html")
+    return render_template("login.html",query=None)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
