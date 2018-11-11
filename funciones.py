@@ -2,7 +2,6 @@ import psycopg2
 
 def run_query(db_host,db_name,db_user,db_pass):
 	try:
-		#conexion_str = 	'dbname="" user="" host="{}" + \\ password="{}"'.format(db_name,db_user,db_host,db_pass)
 		connect_str  =  "dbname = '{}' user = '{}' host = '{}'".format(db_name,db_user,db_host)  + \
 		"password = '{}'".format(db_pass)
 
