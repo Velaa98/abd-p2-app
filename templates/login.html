@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if query==None %}
+<form action = "/login" method = "POST">
+	<fieldset>
+		<legend>Login</legend>
+			<label for="Host"> Host:</label> <input type="text" name="host" size="30" maxlength="30"> <br/>
+			<label for="NombreBBDD"> Nombre de la BBDD:</label> <input type="text" name="dbname" size="30" maxlength="30"> <br/>
+			<label for="Usuario"> Usuario:</label> <input type="text" name="user" size="30" maxlength="30"> <br/>
+			<label for="Contraseña"> Contraseña:</label> <input type="password" name="password" size="30" maxlength="30"> <br/>
+	</fieldset>
+	<input type="submit" name="enviar" value="ENVIAR">
+</form>
+{% else -%}
+
+	<table border=1>
+		<tr>
+			<th> Usuario </th>
+			<th> IP </th>
+		</tr>
+		{% for elem in query %}
+			<tr>
+				<td> {{elem[0]}} </td>
+				<td> {{elem[1]}} </td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endif %}
+{%endblock%}
