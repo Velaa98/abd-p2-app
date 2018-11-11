@@ -27,7 +27,7 @@ def login():
 		else:
 			return render_template("login.html",query=query)
 	else:
-		return render_template("login.html")
+		return render_template("login.html",query=None)
 
 
 app.run('0.0.0.0', int(port), debug=False)
