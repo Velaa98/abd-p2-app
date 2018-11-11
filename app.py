@@ -12,9 +12,7 @@ def inicio():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	if request.method=="GET":
-		return render_template("login.html")
-	else:
+	if request.method=="POST":
 		db_host = request.form['host']
 		db_name = request.form['dbname']		
 		db_user = request.form['user']
@@ -28,6 +26,8 @@ def login():
 			return render_template("login.html",query=None)
 		else:
 			return render_template("login.html",query=query)
+	else:
+		return render_template("login.html")
 
 
 app.run('0.0.0.0', int(port), debug=False)
