@@ -1,8 +1,10 @@
 from flask import Flask,render_template,request
 from funciones import run_query
+import os
 
 app = Flask(__name__)
 app.secret_key = 'secret key'
+port = os.environ['PORT']
 
 @app.route('/')
 def inicio():
@@ -28,6 +30,4 @@ def login():
 			return render_template("login.html",query=query)
 
 
-if __name__ == '__main__':
-	app.debug = True
-	app.run()
+app.run('0.0.0.0', int(port), debug=False)
